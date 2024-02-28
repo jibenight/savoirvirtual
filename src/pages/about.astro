@@ -1,0 +1,80 @@
+---
+const pageTitle: string = 'À propos de moi';
+
+// Définir une interface pour `identity`
+interface Identity {
+  firstName: string;
+  country: string;
+  occupation: string;
+  hobbies: string[];
+}
+
+// Utiliser l'interface pour typer la constante `identity`
+const identity: Identity = {
+  firstName: 'Jean',
+  country: 'France',
+  occupation: 'Freelance',
+  hobbies: ['Cinéma', 'Voyages', 'Jeux vidéo'],
+};
+
+// Définir un type pour les compétences si vous souhaitez être spécifique
+// Ceci est optionnel et surtout utile si vous avez un ensemble limité de compétences valides
+type Skill = 'HTML' | 'CSS' | 'JavaScript' | 'React' | 'Astro';
+
+// Utiliser le type `Skill[]` pour un tableau de compétences spécifiques, ou simplement `string[]` pour un tableau de chaînes générique
+const skills: Skill[] = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro'];
+---
+
+<html lang='fr'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header>
+      <a href='/'>Accueil</a>
+      <a href='/about/'>À propos</a>
+      <a href='/school/'>School</a>
+    </header>
+
+    <h1>{pageTitle}</h1>
+    <h2>... et de mon nouveau site Astro !</h2>
+
+    <p>
+      Je suis en train de suivre le tutoriel d'introduction d'Astro. C'est la
+      deuxième page de mon site web, et c'est la première que j'ai construite
+      moi-même !
+    </p>
+
+    <p>
+      Ce site se mettra à jour au fur et à mesure que je compléterai davantage
+      le tutoriel, alors revenez régulièrement voir comment se déroule mon
+      parcours !
+    </p>
+
+    <p>Voici quelques faits me concernant :</p>
+    <ul>
+      <li>Je m'appelle {identity.firstName}.</li>
+      <li>
+        Je vis au {identity.country} et je travaille en tant que {
+          identity.occupation
+        }.
+      </li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            Deux de mes loisirs sont : {identity.hobbies[0]} et{' '}
+            {identity.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
+    <p>Voici mes compétences :</p>
+    <ul>
+      {skills.map(skill => <li>{skill}</li>)}
+    </ul>
+  </body>
+</html>
