@@ -1,27 +1,18 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const allPosts = await Astro.glob('../pages/lessons/*.md');
 const pageTitle: string = 'School';
 ---
 
-<html lang='fr'>
-  <head>
-    <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width' />
-    <meta name='generator' content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <header>
-      <a href='/'>Accueil</a>
-      <a href='/about/'>À propos</a>
-      <a href='/school/'>School</a>
-    </header>
-    <h1>{pageTitle}</h1>
-    <p>Voici où je vais publier mes lessons</p>
-    <ul>
-      <li><a href='/lessons/emailing/'>Emailing</a></li>
-      <li><a href='/lessons/wordpress/'>Wordpress</a></li>
-      <li><a href='/lessons/post-3/'>Post 3</a></li>
-    </ul>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <p>Voici où je vais publier mes lessons</p>
+  <ul>
+    {
+      allPosts.map(post => (
+        <li>
+          <a href={post.url}>{post.frontmatter.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
