@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
 const allPosts = await Astro.glob('../pages/lessons/*.md');
 const pageTitle: string = 'School';
 ---
@@ -9,9 +10,7 @@ const pageTitle: string = 'School';
   <ul>
     {
       allPosts.map(post => (
-        <li>
-          <a href={post.url}>{post.frontmatter.title}</a>
-        </li>
+        <BlogPost url={post.url} title={post.frontmatter.title} />
       ))
     }
   </ul>

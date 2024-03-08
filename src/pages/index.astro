@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle: string = 'Savoir Virtual';
+import Greeting from '../components/Greeting.jsx';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <h2>Mon sous-titre de blog génial</h2>
+  <Greeting client:load messages={['Salut', 'Bonjour', 'Salut', 'Coucou']} />
 </BaseLayout>
