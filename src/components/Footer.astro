@@ -9,18 +9,13 @@ import ThemeIcon from './ThemeIcon.astro';
   footer {
     display: flex;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: auto;
+    justify-content: space-between;
+    padding: 10px;
   }
 </style>
 
 <footer>
-  <p>
-    Apprenez-en plus sur mes projets sur <a
-      href={`https://www.${platform}.com/${username}`}>{platform}</a
-    > !
-  </p>
-  <Social platform='twitter' username='astrodotbuild' />
-  <Social platform='github' username='withastro' />
-  <Social platform='youtube' username='astrodotbuild' />
+  <div>Copyright-2024</div>
   <ThemeIcon />
 </footer>

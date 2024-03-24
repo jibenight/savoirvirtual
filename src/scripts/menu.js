@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
   const hamburgerMenu = document.getElementById('Hamburger-menu');
-  const navigation = document.querySelector('.nav-links'); // Utilisez `as` pour le cast si vous êtes sûr de l'élément
-  const optimusLogo = document.querySelector('#Hamburger-menu img'); // Utilisez `as` pour le cast si vous êtes sûr de l'élément
+  const navigation = document.querySelector('.nav-links');
+  const closeButton = document.getElementById('close-button');
 
-  if (hamburgerMenu && navigation && optimusLogo) {
+  if (hamburgerMenu && navigation) {
     hamburgerMenu.addEventListener('click', () => {
-      // Ici, on vérifie si les éléments ont bien la méthode `classList`
-      if ('classList' in navigation && 'classList' in optimusLogo) {
-        navigation.classList.toggle('hidden');
-        optimusLogo.classList.toggle('hidden');
-      }
+      navigation.classList.toggle('show');
+    });
+  }
+  if (closeButton) {
+    closeButton.addEventListener('click', () => {
+      navigation.classList.toggle('show');
     });
   }
 });

@@ -1,10 +1,69 @@
 ---
-
+import { Image } from 'astro:assets';
+import logo from '../images/Logo-120.webp';
 ---
 
+<style>
+  .nav-head {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-close {
+    display: flex;
+    align-content: center;
+  }
+
+  .nav-link li {
+    list-style: none;
+    margin: 20px 0;
+  }
+  .nav-link li a {
+    text-decoration: none;
+    color: black;
+  }
+
+  #close-button {
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+</style>
 <div class='nav-links hidden'>
-  <a href='/'>Accueil</a>
-  <a href='/about/'>À propos</a>
-  <a href='/school/'>School</a>
-  <a href='/tags'>Catégories</a>
+  <div class='nav-head'>
+    <div>
+      <a href='/'>
+        <Image
+          src={logo}
+          alt='logo du site internet savoir virtual'
+          width='80'
+          height='80'
+        />
+      </a>
+    </div>
+    <div class='nav-close'>
+      <button id='close-button' aria-label='Fermer le menu'>×</button>
+    </div>
+  </div>
+
+  <div class='nav-link'>
+    <ul>
+      <li><a href='/about/'>À propos</a></li>
+      <li><a href='/school/'>School</a></li>
+      <li><a href='/tags'>Catégories</a></li>
+    </ul>
+  </div>
 </div>
+
+<script>
+  const closeButton = document.getElementById('close-button');
+  const navigation = document.querySelector('.nav-links');
+
+  if (closeButton) {
+    closeButton.addEventListener('click', () => {
+      navigation.classList.toggle('show');
+    });
+  }
+</script>

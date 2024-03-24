@@ -1,3 +1,8 @@
+html,
+body {
+  height: 100%;
+  margin: 0; /* Retirez la marge par défaut */
+}
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
@@ -9,6 +14,9 @@ body {
   max-width: 80ch;
   padding: 1rem;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column; /* Les éléments s'organisent verticalement */
+  min-height: 100vh;
 }
 
 * {
@@ -28,9 +36,10 @@ h1 {
 header {
   display: flex;
   justify-content: space-between;
-  height: 3.875rem;
+  align-items: center;
+  height: 60px;
   background-color: antiquewhite;
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 15px;
 }
 
@@ -47,8 +56,20 @@ header .logo img {
   height: 100%;
 }
 
-header .hidden {
-  display: none;
+.nav-links {
+  position: fixed; /* Position fixe pour permettre le slide */
+  top: 0; /* Alignement en haut */
+  left: 0; /* Alignement à gauche */
+  width: 100vw; /* Largeur totale de la vue */
+  height: 100vh; /* Hauteur totale de la vue */
+  background-color: #fff; /* Fond blanc ou autre couleur selon votre design */
+  transform: translateX(-100%); /* Départ à gauche de l'écran */
+  transition: transform 0.3s ease-in-out; /* Animation de transition */
+  z-index: 100; /* S'assure que le menu est au-dessus des autres éléments */
+}
+
+.nav-links.show {
+  transform: translateX(0); /* Slide pour montrer le menu */
 }
 
 html.dark {
