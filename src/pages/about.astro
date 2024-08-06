@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle: string = 'À propos de moi';
+const pageTitle: string = 'Bienvenue sur mon site de formation digitale !';
 
 // Définir une interface pour `identity`
 interface Identity {
@@ -28,18 +28,52 @@ const skills: Skill[] = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro'];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>... et de mon nouveau site Astro !</h2>
+  <section id='about'>
+    <p>
+      Je suis <strong>Jean Nguyen</strong>, formateur dans le domaine du digital
+      depuis 2019. Avec plusieurs années d'expérience à mon actif, je me
+      consacre à transmettre mes connaissances et compétences de manière
+      accessible et pratique.
+    </p>
 
-  <p>
-    Je suis en train de suivre le tutoriel d'introduction d'Astro. C'est la
-    deuxième page de mon site web, et c'est la première que j'ai construite
-    moi-même !
-  </p>
+    <h2>Mon approche pédagogique</h2>
+    <p>
+      Ma méthode d'enseignement est principalement axée sur la pratique. Je
+      crois fermement que l'apprentissage par l'action est la clé pour assimiler
+      durablement les compétences digitales. C'est pourquoi, dans mes cours, la
+      théorie est toujours accompagnée d'exercices pratiques et d'études de cas
+      concrets.
+    </p>
 
-  <p>
-    Ce site se mettra à jour au fur et à mesure que je compléterai davantage le
-    tutoriel, alors revenez régulièrement voir comment se déroule mon parcours !
-  </p>
+    <h2>Un enseignement adapté à tous</h2>
+    <p>
+      Je comprends que chaque apprenant est unique. C'est pourquoi j'adapte
+      constamment mon discours et mes méthodes en fonction de mon public. Que
+      vous soyez débutant, intermédiaire ou avancé, je m'assure que chaque
+      concept soit clairement compris avant de passer à la prochaine étape. Mon
+      objectif est de garantir que les notions sont bien acquises pour vous
+      permettre d'avancer avec confiance.
+    </p>
+
+    <h2>Mon engagement</h2>
+    <p>
+      En tant que formateur, mon engagement est de vous offrir une formation de
+      qualité qui répond à vos attentes et à vos besoins. Je suis disponible
+      pour répondre à vos questions et pour vous accompagner tout au long de
+      votre parcours d'apprentissage.
+    </p>
+    <p>
+      Merci de me faire confiance pour vos formations digitales. Ensemble, nous
+      allons atteindre vos objectifs et développer vos compétences dans le
+      digital.
+    </p>
+
+    <p>
+      N'hésitez pas à parcourir les cours disponibles et à me contacter pour
+      toute question ou besoin spécifique. Je suis là pour vous aider à réussir
+      !
+    </p>
+  </section>
 
   <p>Voici quelques faits me concernant :</p>
   <ul>
