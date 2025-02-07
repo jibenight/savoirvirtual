@@ -1,0 +1,174 @@
+---
+interface Course {
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+  slug: string;
+}
+
+const courses: Course[] = [
+  {
+    title: 'HTML5 Fondamentaux',
+    description: 'Maîtrisez les bases du HTML5 et la structure des pages web modernes.',
+    category: 'HTML',
+    image: '/images/courses/html.jpg',
+    slug: '/courses/html/fundamentals'
+  },
+  {
+    title: 'CSS3 & Design Responsive',
+    description: 'Créez des designs modernes et adaptables pour tous les écrans.',
+    category: 'CSS',
+    image: '/images/courses/css.jpg',
+    slug: '/courses/css/responsive-design'
+  },
+  {
+    title: 'JavaScript Moderne',
+    description: 'Apprenez JavaScript ES6+ et les concepts de programmation web.',
+    category: 'JavaScript',
+    image: '/images/courses/javascript.jpg',
+    slug: '/courses/javascript/modern'
+  }
+];
+---
+
+<section class="courses-section">
+  <div class="container">
+    <div class="courses-header">
+      <h2>Cours Disponibles</h2>
+      <p>Développez vos compétences avec nos cours structurés et pratiques.</p>
+    </div>
+
+    <div class="courses-grid">
+      {courses.map((course) => (
+        <article class="course-card">
+          <div class="course-image">
+            <img src={course.image} alt={course.title} />
+            <span class="course-category">{course.category}</span>
+          </div>
+          <div class="course-content">
+            <h3>{course.title}</h3>
+            <p>{course.description}</p>
+            <a href={course.slug} class="course-link">
+              Voir le cours
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .courses-section {
+    padding: var(--spacing-xxl) 0;
+  }
+
+  .courses-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+  }
+
+  .courses-header h2 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .courses-header p {
+    color: var(--color-neutral-foreground);
+    opacity: 0.8;
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .course-card {
+    background: var(--color-neutral-background);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .course-image {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
+  .course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .course-category {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background: var(--color-brand-primary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .course-content {
+    padding: var(--spacing-lg);
+  }
+
+  .course-content h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+  }
+
+  .course-content p {
+    color: var(--color-neutral-foreground);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .course-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-brand-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+
+  .course-link:hover {
+    color: var(--color-brand-secondary);
+  }
+
+  .course-link svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .course-link:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .courses-section {
+      padding: var(--spacing-xl) 0;
+    }
+
+    .courses-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

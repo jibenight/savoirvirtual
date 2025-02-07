@@ -1,0 +1,329 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Services";
+
+const services = [
+  {
+    title: "Formation en Ligne",
+    description: "Des cours structurés et interactifs pour apprendre à votre rythme.",
+    features: [
+      "Accès illimité aux cours",
+      "Exercices pratiques",
+      "Projets concrets",
+      "Support par email"
+    ],
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+      <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+    </svg>`
+  },
+  {
+    title: "Mentorat Personnalisé",
+    description: "Un accompagnement sur mesure pour atteindre vos objectifs.",
+    features: [
+      "Sessions individuelles",
+      "Suivi de progression",
+      "Conseils personnalisés",
+      "Révision de code"
+    ],
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+    </svg>`
+  },
+  {
+    title: "Ateliers de Groupe",
+    description: "Apprenez en collaboration avec d'autres passionnés du web.",
+    features: [
+      "Sessions en direct",
+      "Échanges interactifs",
+      "Projets d'équipe",
+      "Networking"
+    ],
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+    </svg>`
+  }
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="services-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>{pageTitle}</h1>
+        <p class="subtitle">Des solutions adaptées à vos besoins d'apprentissage</p>
+      </header>
+
+      <section class="services-grid">
+        {services.map((service) => (
+          <article class="service-card">
+            <div class="service-icon" set:html={service.icon} />
+            <h2>{service.title}</h2>
+            <p class="service-description">{service.description}</p>
+            <ul class="feature-list">
+              {service.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+            <a href="/contact" class="button button-primary">En savoir plus</a>
+          </article>
+        ))}
+      </section>
+
+      <section class="process-section">
+        <h2>Notre Processus</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h3>Consultation</h3>
+            <p>Discussion initiale pour comprendre vos objectifs et besoins spécifiques.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h3>Plan Personnalisé</h3>
+            <p>Création d'un programme d'apprentissage adapté à votre niveau et vos objectifs.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h3>Formation</h3>
+            <p>Mise en œuvre du plan d'apprentissage avec un suivi régulier.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h3>Évaluation</h3>
+            <p>Suivi des progrès et ajustements du programme si nécessaire.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <h2>Questions Fréquentes</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Combien de temps durent les formations ?</h3>
+            <p>La durée varie selon le programme choisi et votre rythme d'apprentissage. Les cours en ligne sont accessibles 24/7.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Quel niveau est requis ?</h3>
+            <p>Nos formations s'adaptent à tous les niveaux, du débutant à l'avancé.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Comment se déroule le mentorat ?</h3>
+            <p>Les sessions de mentorat sont personnalisées et peuvent se faire en ligne via visioconférence.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Quels sont les modes de paiement ?</h3>
+            <p>Nous acceptons les paiements par carte bancaire, virement et PayPal. Des facilités de paiement sont possibles.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2>Prêt à Commencer ?</h2>
+          <p>Contactez-moi pour discuter de vos besoins en formation.</p>
+          <div class="cta-buttons">
+            <a href="/contact" class="button button-primary">Me contacter</a>
+            <a href="/courses" class="button button-secondary">Voir les cours</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .services-page {
+    padding: var(--spacing-xxl) 0;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--color-neutral-foreground-secondary);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .service-card {
+    background: var(--color-neutral-background);
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-neutral-background-secondary);
+    border-radius: 12px;
+    color: var(--color-brand-primary);
+  }
+
+  .service-card h2 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.5rem;
+  }
+
+  .service-description {
+    color: var(--color-neutral-foreground-secondary);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .feature-list li {
+    margin-bottom: var(--spacing-xs);
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .feature-list li::before {
+    content: "✓";
+    color: var(--color-brand-primary);
+    position: absolute;
+    left: 0;
+  }
+
+  .service-card .button {
+    margin-top: auto;
+  }
+
+  .process-section {
+    margin-bottom: var(--spacing-xxl);
+    text-align: center;
+  }
+
+  .process-section h2 {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .process-step {
+    position: relative;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--color-brand-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    font-weight: 600;
+  }
+
+  .process-step h3 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .faq-section {
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .faq-section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .faq-item {
+    background: var(--color-neutral-background);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+  }
+
+  .faq-item p {
+    color: var(--color-neutral-foreground-secondary);
+  }
+
+  .cta-section {
+    background: var(--color-neutral-background-secondary);
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cta-content p {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process-steps {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
+</style>

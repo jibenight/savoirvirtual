@@ -4,25 +4,126 @@ import { Image } from 'astro:assets';
 import logo from '../images/logo.svg';
 ---
 
-<header>
-  <div class='navigation center-item'>
-    <div id='Hamburger-menu'>
-      <img src='../../public/menu.svg' alt='' width='35px' />
-      <Navigation />
+<header class="site-header">
+  <div class="header-container">
+    <div class="header-left">
+      <div class="menu-button" id="Hamburger-menu">
+        <button class="icon-button" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 4h16v2H2V4zm0 5h16v2H2V9zm0 5h16v2H2v-2z"/>
+          </svg>
+        </button>
+        <Navigation />
+      </div>
+      <a href="/" class="logo-link">
+        <Image
+          src={logo}
+          alt="logo du site internet savoir virtual"
+          width="24"
+          height="24"
+          class="logo-image"
+        />
+        <span class="site-name">Savoir Virtual</span>
+      </a>
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="/about" class="nav-item">À propos</a>
+      <a href="/services" class="nav-item">Services</a>
+      <a href="/courses/" class="nav-item">Cours</a>
+    </nav>
+
+    <div class="header-right">
+      <button class="icon-button" aria-label="Rechercher">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M8.5 3a5.5 5.5 0 0 1 4.227 9.02l4.127 4.126a.5.5 0 0 1-.638.765l-.07-.057-4.126-4.127A5.5 5.5 0 1 1 8.5 3Zm0 1a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"/>
+        </svg>
+      </button>
     </div>
   </div>
-  <div class='logo'>
-    <a href='/'>
-      <Image
-        src={logo}
-        alt='logo du site internet savoir virtual'
-        width='40'
-        height='40'
-        style={{ width: '40px', height: '40px', objectFit: 'contain' }}
-      /></a
-    >
-  </div>
-  <div class='search center-item'>
-    <img src='../../public/search.svg' alt='' width='35px' />
-  </div>
 </header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .header-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--color-neutral-foreground);
+  }
+
+  .site-name {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .icon-button {
+    padding: 8px;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    color: var(--color-neutral-foreground);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+
+  .icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .nav-item {
+    padding: 6px 12px;
+    text-decoration: none;
+    color: var(--color-neutral-foreground);
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+
+  .nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  @media (min-width: 768px) {
+    .menu-button {
+      display: none;
+    }
+
+    .desktop-nav {
+      display: flex;
+      gap: 8px;
+    }
+  }
+</style>

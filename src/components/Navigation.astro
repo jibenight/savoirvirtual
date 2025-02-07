@@ -1,69 +1,145 @@
 ---
-import { Image } from 'astro:assets';
-import logo from '../images/Logo-120.webp';
 ---
 
+<nav class="nav-panel">
+  <div class="nav-header">
+    <button class="close-button" id="close-button" aria-label="Fermer le menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="nav-content">
+    <div class="nav-section">
+      <h2 class="nav-section-title">Menu</h2>
+      <ul class="nav-list">
+        <li><a href="/" class="nav-link">Accueil</a></li>
+        <li><a href="/about" class="nav-link">À propos</a></li>
+        <li><a href="/services" class="nav-link">Services</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-section">
+      <h2 class="nav-section-title">Cours</h2>
+      <ul class="nav-list">
+        <li><a href="/courses/html" class="nav-link">HTML</a></li>
+        <li><a href="/courses/css" class="nav-link">CSS</a></li>
+        <li><a href="/courses/javascript" class="nav-link">JavaScript</a></li>
+        <li><a href="/courses" class="nav-link">Tous les cours</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-section">
+      <h2 class="nav-section-title">Légal</h2>
+      <ul class="nav-list">
+        <li><a href="/legal" class="nav-link">Mentions légales</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <style>
-  .nav-head {
-    margin: 20px;
+  .nav-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100vh;
+    background: var(--color-neutral-background);
+    box-shadow: var(--shadow-lg);
+    transform: translateX(-100%);
+    transition: transform var(--transition-medium);
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .nav-panel.show {
+    transform: translateX(0);
+  }
+
+  .nav-header {
+    height: 48px;
+    padding: 0 16px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-  .nav-close {
-    display: flex;
-    align-content: center;
-  }
-
-  .nav-link li {
-    list-style: none;
-    margin: 20px 0;
-  }
-  .nav-link li a {
-    text-decoration: none;
-    color: black;
-  }
-
-  #close-button {
-    border: none;
+  .close-button {
+    padding: 8px;
     background: none;
-    font-size: 24px;
+    border: none;
+    border-radius: 4px;
+    color: var(--color-neutral-foreground);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast);
+  }
+
+  .close-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-content {
+    padding: 24px 16px;
+  }
+
+  .nav-section:not(:last-child) {
+    margin-bottom: 32px;
+  }
+
+  .nav-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-neutral-foreground);
+    opacity: 0.6;
+    margin-bottom: 8px;
+    padding: 0 8px;
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 8px;
+    color: var(--color-neutral-foreground);
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--color-brand-primary);
+  }
+
+  @media (min-width: 768px) {
+    .nav-panel {
+      display: none;
+    }
   }
 </style>
-<div class='nav-links hidden'>
-  <div class='nav-head'>
-    <div>
-      <a href='/'>
-        <Image
-          src={logo}
-          alt='logo du site internet savoir virtual'
-          width='80'
-          height='80'
-        />
-      </a>
-    </div>
-    <div class='nav-close'>
-      <button id='close-button' aria-label='Fermer le menu'>×</button>
-    </div>
-  </div>
-
-  <div class='nav-link'>
-    <ul>
-      <li><a href='/about/'>À propos</a></li>
-      <li><a href='/school/'>School</a></li>
-      <li><a href='/tags'>Catégories</a></li>
-    </ul>
-  </div>
-</div>
 
 <script>
+  const menuButton = document.getElementById('Hamburger-menu');
   const closeButton = document.getElementById('close-button');
-  const navigation = document.querySelector('.nav-links');
+  const navPanel = document.querySelector('.nav-panel');
 
-  if (closeButton) {
-    closeButton.addEventListener('click', () => {
-      navigation.classList.toggle('show');
-    });
-  }
+  menuButton?.addEventListener('click', () => {
+    navPanel?.classList.add('show');
+  });
+
+  closeButton?.addEventListener('click', () => {
+    navPanel?.classList.remove('show');
+  });
 </script>

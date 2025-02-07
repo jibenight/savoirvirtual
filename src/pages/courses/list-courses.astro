@@ -1,0 +1,67 @@
+---
+// Import des images
+import htmlImage from '../../images/courses/html.webp';
+import cssImage from '../../images/courses/test.jpg';
+import jsImage from '../../images/courses/test.jpg';
+import test from '../../images/courses/test.jpg';
+
+export const categories = [
+  {
+    title: "HTML5",
+    description: "Apprenez les fondamentaux du HTML5 et la structure des pages web modernes.",
+    image: test,
+    courses: [
+      {
+        title: "Les bases du HTML5",
+        level: "Débutant",
+        duration: "4 heures",
+        slug: "/courses/html/les-bases-du-html5"
+      },
+      {
+        title: "HTML5 Avancé",
+        level: "Intermédiaire",
+        duration: "6 heures",
+        slug: "/courses/html/html5-avance"
+      }
+    ]
+  },
+  {
+    title: "CSS3",
+    description: "Maîtrisez le design web moderne avec CSS3 et les techniques responsive.",
+    image: cssImage,
+    courses: [
+      {
+        title: "Les bases du CSS",
+        level: "Débutant",
+        duration: "5 heures",
+        slug: "/courses/css/les-bases-du-css"
+      },
+      {
+        title: "CSS Responsive Design",
+        level: "Intermédiaire",
+        duration: "8 heures",
+        slug: "/courses/css/responsive-design"
+      }
+    ]
+  },
+  {
+    title: "JavaScript",
+    description: "Développez des applications web interactives avec JavaScript moderne.",
+    image: jsImage,
+    courses: [
+      {
+        title: "JavaScript Fondamentaux",
+        level: "Débutant",
+        duration: "6 heures",
+        slug: "/courses/javascript/fondamentaux"
+      },
+      {
+        title: "JavaScript ES6+",
+        level: "Intermédiaire",
+        duration: "10 heures",
+        slug: "/courses/javascript/es6-plus"
+      }
+    ]
+  }
+];
+---

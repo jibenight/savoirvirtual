@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Mentions Légales";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="legal-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>{pageTitle}</h1>
+      </header>
+
+      <div class="legal-content">
+        <section class="legal-section">
+          <h2>Informations Légales</h2>
+          <p>
+            Ce site est édité par Savoir Virtual, entreprise individuelle.
+            <br />
+            Siège social : [Votre Adresse]
+            <br />
+            SIRET : [Votre numéro SIRET]
+            <br />
+            Numéro de TVA : [Votre numéro de TVA]
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Hébergement</h2>
+          <p>
+            Ce site est hébergé par :
+            <br />
+            [Nom de l'hébergeur]
+            <br />
+            [Adresse de l'hébergeur]
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Propriété Intellectuelle</h2>
+          <p>
+            L'ensemble du contenu de ce site (textes, images, vidéos, etc.) est protégé
+            par le droit d'auteur. Toute reproduction, même partielle, est interdite
+            sans autorisation préalable.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Protection des Données Personnelles</h2>
+          <p>
+            Conformément au Règlement Général sur la Protection des Données (RGPD),
+            vous disposez d'un droit d'accès, de rectification et de suppression
+            de vos données personnelles. Pour exercer ces droits, contactez-nous à :
+            [votre email].
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Cookies</h2>
+          <p>
+            Ce site utilise des cookies pour améliorer votre expérience de navigation.
+            Vous pouvez à tout moment désactiver les cookies dans les paramètres
+            de votre navigateur.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Conditions Générales de Vente</h2>
+          <p>
+            Les conditions générales de vente régissent l'ensemble des transactions
+            effectuées sur ce site. Elles sont accessibles à tout moment via le
+            lien présent en bas de page.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Responsabilité</h2>
+          <p>
+            Savoir Virtual s'efforce d'assurer l'exactitude et la mise à jour des
+            informations diffusées sur ce site, dont elle se réserve le droit de
+            corriger le contenu à tout moment et sans préavis.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Contact</h2>
+          <p>
+            Pour toute question concernant ces mentions légales, vous pouvez nous
+            contacter à l'adresse suivante :
+            <br />
+            Email : [votre email]
+            <br />
+            Téléphone : [votre numéro]
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding: var(--spacing-xxl) 0;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-section {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: var(--color-neutral-background);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .legal-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-section h2 {
+    color: var(--color-brand-primary);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+  }
+
+  .legal-section p {
+    color: var(--color-neutral-foreground);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .legal-page {
+      padding: var(--spacing-xl) 0;
+    }
+
+    .legal-section {
+      padding: var(--spacing-md);
+    }
+  }
+</style>

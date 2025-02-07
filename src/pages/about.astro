@@ -1,99 +1,261 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle: string = 'Bienvenue sur mon site de formation digitale !';
-
-// Définir une interface pour `identity`
-interface Identity {
-  firstName: string;
-  country: string;
-  occupation: string;
-  hobbies: string[];
-}
-
-// Utiliser l'interface pour typer la constante `identity`
-const identity: Identity = {
-  firstName: 'Jean',
-  country: 'France',
-  occupation: 'Freelance',
-  hobbies: ['Cinéma', 'Voyages', 'Jeux vidéo'],
-};
-
-// Définir un type pour les compétences si vous souhaitez être spécifique
-// Ceci est optionnel et surtout utile si vous avez un ensemble limité de compétences valides
-type Skill = 'HTML' | 'CSS' | 'JavaScript' | 'React' | 'Astro';
-
-// Utiliser le type `Skill[]` pour un tableau de compétences spécifiques, ou simplement `string[]` pour un tableau de chaînes générique
-const skills: Skill[] = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro'];
+const pageTitle = "À Propos";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <section id='about'>
-    <p>
-      Je suis <strong>Jean Nguyen</strong>, formateur dans le domaine du digital
-      depuis 2019. Avec plusieurs années d'expérience à mon actif, je me
-      consacre à transmettre mes connaissances et compétences de manière
-      accessible et pratique.
-    </p>
+  <div class="about-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>{pageTitle}</h1>
+        <p class="subtitle">Expert en développement web et formateur passionné</p>
+      </header>
 
-    <h2>Mon approche pédagogique</h2>
-    <p>
-      Ma méthode d'enseignement est principalement axée sur la pratique. Je
-      crois fermement que l'apprentissage par l'action est la clé pour assimiler
-      durablement les compétences digitales. C'est pourquoi, dans mes cours, la
-      théorie est toujours accompagnée d'exercices pratiques et d'études de cas
-      concrets.
-    </p>
+      <section class="about-content">
+        <div class="profile-section">
+          <div class="profile-image">
+            <img src="/images/profile.jpg" alt="Photo de profil" />
+          </div>
+          <div class="profile-info">
+            <h2>Mon Parcours</h2>
+            <p>
+              Avec plus de 10 ans d'expérience dans le développement web et l'enseignement,
+              je me consacre à former la prochaine génération de développeurs web.
+              Ma passion pour le code et la pédagogie m'a conduit à créer Savoir Virtual,
+              une plateforme où je partage mon expertise de manière accessible et structurée.
+            </p>
+            <div class="expertise-list">
+              <h3>Domaines d'expertise</h3>
+              <ul>
+                <li>Développement Front-end (HTML5, CSS3, JavaScript)</li>
+                <li>Frameworks modernes (React, Vue.js)</li>
+                <li>Design Responsive et UX/UI</li>
+                <li>Optimisation des performances web</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-    <h2>Un enseignement adapté à tous</h2>
-    <p>
-      Je comprends que chaque apprenant est unique. C'est pourquoi j'adapte
-      constamment mon discours et mes méthodes en fonction de mon public. Que
-      vous soyez débutant, intermédiaire ou avancé, je m'assure que chaque
-      concept soit clairement compris avant de passer à la prochaine étape. Mon
-      objectif est de garantir que les notions sont bien acquises pour vous
-      permettre d'avancer avec confiance.
-    </p>
+        <div class="mission-section">
+          <h2>Ma Mission</h2>
+          <p>
+            Mon objectif est de rendre l'apprentissage du développement web accessible
+            à tous, en proposant des formations structurées et adaptées aux besoins
+            de chacun. Je crois en une approche pratique et concrète, où chaque
+            concept est expliqué clairement et mis en application immédiatement.
+          </p>
+        </div>
 
-    <h2>Mon engagement</h2>
-    <p>
-      En tant que formateur, mon engagement est de vous offrir une formation de
-      qualité qui répond à vos attentes et à vos besoins. Je suis disponible
-      pour répondre à vos questions et pour vous accompagner tout au long de
-      votre parcours d'apprentissage.
-    </p>
-    <p>
-      Merci de me faire confiance pour vos formations digitales. Ensemble, nous
-      allons atteindre vos objectifs et développer vos compétences dans le
-      digital.
-    </p>
+        <div class="values-section">
+          <h2>Mes Valeurs</h2>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                </svg>
+              </div>
+              <h3>Excellence</h3>
+              <p>Je m'engage à fournir un contenu pédagogique de haute qualité, constamment mis à jour.</p>
+            </div>
 
-    <p>
-      N'hésitez pas à parcourir les cours disponibles et à me contacter pour
-      toute question ou besoin spécifique. Je suis là pour vous aider à réussir
-      !
-    </p>
-  </section>
+            <div class="value-card">
+              <div class="value-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                </svg>
+              </div>
+              <h3>Accompagnement</h3>
+              <p>Un suivi personnalisé pour assurer la progression et la réussite de chaque apprenant.</p>
+            </div>
 
-  <p>Voici quelques faits me concernant :</p>
-  <ul>
-    <li>Je m'appelle {identity.firstName}.</li>
-    <li>
-      Je vis au {identity.country} et je travaille en tant que {
-        identity.occupation
-      }.
-    </li>
-    {
-      identity.hobbies.length >= 2 && (
-        <li>
-          Deux de mes loisirs sont : {identity.hobbies[0]} et{' '}
-          {identity.hobbies[1]}
-        </li>
-      )
-    }
-  </ul>
-  <p>Voici mes compétences :</p>
-  <ul>
-    {skills.map(skill => <li>{skill}</li>)}
-  </ul>
+            <div class="value-card">
+              <div class="value-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+              </div>
+              <h3>Innovation</h3>
+              <p>Des méthodes d'enseignement modernes et adaptées aux besoins actuels du marché.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <h2>Prêt à commencer votre formation ?</h2>
+        <p>Découvrez mes cours et commencez votre parcours dans le développement web.</p>
+        <div class="cta-buttons">
+          <a href="/courses" class="button button-primary">Voir les cours</a>
+          <a href="/contact" class="button button-secondary">Me contacter</a>
+        </div>
+      </section>
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .about-page {
+    padding: var(--spacing-xxl) 0;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--color-neutral-foreground-secondary);
+  }
+
+  .profile-section {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .profile-image {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .profile-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .profile-info h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .profile-info p {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .expertise-list {
+    background: var(--color-neutral-background-secondary);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+  }
+
+  .expertise-list h3 {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.25rem;
+  }
+
+  .expertise-list ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .expertise-list li {
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .expertise-list li::before {
+    content: "•";
+    color: var(--color-brand-primary);
+    position: absolute;
+    left: 0;
+  }
+
+  .mission-section {
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .mission-section h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .values-section {
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+
+  .value-card {
+    background: var(--color-neutral-background);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast);
+  }
+
+  .value-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .value-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-neutral-background-secondary);
+    border-radius: 12px;
+    color: var(--color-brand-primary);
+  }
+
+  .value-card h3 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cta-section {
+    text-align: center;
+    background: var(--color-neutral-background-secondary);
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    border-radius: 8px;
+  }
+
+  .cta-section h2 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cta-section p {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .profile-section {
+      grid-template-columns: 1fr;
+    }
+
+    .profile-image {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
+</style>
