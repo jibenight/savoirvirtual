@@ -48,6 +48,8 @@ const { pageTitle } = Astro.props;
         line-height: var(--line-height-base);
         background-color: var(--color-neutral-background);
         color: var(--color-neutral-foreground);
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--header-height); /* Ajout du scroll-padding pour les ancres */
       }
 
       body {
@@ -91,13 +93,11 @@ const { pageTitle } = Astro.props;
     </style>
   </head>
   <body>
-    <div class="site-wrapper">
-      <Header />
-      <main>
-        <slot />
-      </main>
-      <Footer />
-    </div>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
     <script>
       import '../scripts/menu.js';
     </script>

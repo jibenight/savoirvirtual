@@ -3,11 +3,12 @@
   /* Couleurs */
   --color-neutral-background: #ffffff;
   --color-neutral-background-secondary: #f8f9fa;
-  --color-neutral-foreground: #2C3E50;
+  --color-neutral-foreground: #2c3e50;
   --color-brand-primary: #0078d4;
   --color-brand-secondary: #005a9e;
   --color-accent: #47a7f5;
-  
+  --header-height: 80px;
+
   /* Typographie */
   --font-family-base: 'Segoe UI', system-ui, -apple-system, sans-serif;
   --font-size-base: 16px;
@@ -45,7 +46,9 @@
 }
 
 /* Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -63,10 +66,26 @@ body {
   color: var(--color-neutral-foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  padding-top: var(
+    --header-height
+  ); /* Ajout du padding pour compenser le header fixe */
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-weight: 600;
   line-height: 1.2;
@@ -231,8 +250,12 @@ a:hover {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
@@ -256,26 +279,56 @@ a:hover {
 }
 
 /* Utilities */
-.text-center { text-align: center; }
+.text-center {
+  text-align: center;
+}
 .text-gradient {
-  background: linear-gradient(45deg, var(--color-brand-primary), var(--color-brand-secondary));
+  background: linear-gradient(
+    45deg,
+    var(--color-brand-primary),
+    var(--color-brand-secondary)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.mt-0 { margin-top: 0; }
-.mt-1 { margin-top: var(--spacing-xs); }
-.mt-2 { margin-top: var(--spacing-sm); }
-.mt-3 { margin-top: var(--spacing-md); }
-.mt-4 { margin-top: var(--spacing-lg); }
-.mt-5 { margin-top: var(--spacing-xl); }
+.mt-0 {
+  margin-top: 0;
+}
+.mt-1 {
+  margin-top: var(--spacing-xs);
+}
+.mt-2 {
+  margin-top: var(--spacing-sm);
+}
+.mt-3 {
+  margin-top: var(--spacing-md);
+}
+.mt-4 {
+  margin-top: var(--spacing-lg);
+}
+.mt-5 {
+  margin-top: var(--spacing-xl);
+}
 
-.mb-0 { margin-bottom: 0; }
-.mb-1 { margin-bottom: var(--spacing-xs); }
-.mb-2 { margin-bottom: var(--spacing-sm); }
-.mb-3 { margin-bottom: var(--spacing-md); }
-.mb-4 { margin-bottom: var(--spacing-lg); }
-.mb-5 { margin-bottom: var(--spacing-xl); }
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-1 {
+  margin-bottom: var(--spacing-xs);
+}
+.mb-2 {
+  margin-bottom: var(--spacing-sm);
+}
+.mb-3 {
+  margin-bottom: var(--spacing-md);
+}
+.mb-4 {
+  margin-bottom: var(--spacing-lg);
+}
+.mb-5 {
+  margin-bottom: var(--spacing-xl);
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -371,8 +424,8 @@ header .logo {
 
 /* Footer */
 .site-footer {
-  background-color: var(--footer-background-color);
-  color: var(--footer-text-color);
+  background-color: var(--color-neutral-background);
+  color: var(--color-neutral-foreground);
   padding: var(--spacing-xxl) 0;
   margin-top: auto;
 }
@@ -391,7 +444,7 @@ header .logo {
 }
 
 .footer-description {
-  color: var(--color-neutral-foreground-secondary);
+  color: var(--color-neutral-foreground);
   margin-bottom: var(--spacing-md);
 }
 
@@ -415,14 +468,14 @@ header .logo {
 
 .footer-links a,
 .footer-contact a {
-  color: var(--footer-link-color);
+  color: var(--color-neutral-foreground);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .footer-links a:hover,
 .footer-contact a:hover {
-  color: var(--footer-link-hover-color);
+  color: var(--color-brand-primary);
 }
 
 .footer-contact li {
@@ -438,7 +491,7 @@ header .logo {
 
 .footer-bottom {
   padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--color-neutral-border);
+  border-top: 1px solid var(--color-neutral-background-secondary);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -453,31 +506,8 @@ header .logo {
 }
 
 .footer-legal a {
-  color: var(--color-neutral-foreground-secondary);
+  color: var(--color-neutral-foreground);
   text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.footer-legal a:hover {
-  color: var(--color-brand-primary);
-}
-
-@media (max-width: 768px) {
-  .footer-grid {
-    gap: var(--spacing-lg);
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: var(--spacing-md);
-    text-align: center;
-  }
-
-  .footer-legal {
-    justify-content: center;
-  }
-}
-
   transition: color var(--transition-fast);
 }
 
