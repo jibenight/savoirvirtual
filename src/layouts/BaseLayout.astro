@@ -16,7 +16,22 @@ const { pageTitle } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style is:global>
+    
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import '../scripts/menu.js';
+    </script>
+  </body>
+</html>
+
+
+<style is:global>
       :root {
         /* Couleurs Fluent 2 */
         --color-neutral-background: #fafafa;
@@ -90,19 +105,7 @@ const { pageTitle } = Astro.props;
         max-width: 100%;
         height: auto;
       }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
-    <script>
-      import '../scripts/menu.js';
-    </script>
-  </body>
-</html>
+</style>
 
 <style>
   .site-wrapper {
